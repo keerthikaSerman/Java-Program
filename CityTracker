@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class CityManager {
+    public static void main(String[] args) {
+        ArrayList<String> cities = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+
+        // Append cities
+        cities.add("Chennai");
+        cities.add("Coimbatore");
+        cities.add("Madurai");
+        cities.add("Trichy");
+
+        System.out.println("Cities after adding: " + cities);
+
+        // Insert a city at a specific position
+        cities.add(2, "Salem");
+        System.out.println("Cities after inserting Salem at index 2: " + cities);
+
+        // Search for a city (user input)
+        System.out.print("\nEnter a city name to search: ");
+        String searchCity = sc.nextLine();
+
+        if (cities.contains(searchCity)) {
+            System.out.println(searchCity + " is present in the list.");
+        } else {
+            System.out.println(searchCity + " is not present in the list.");
+        }
+
+        // Display cities starting with a given letter (user input)
+        System.out.print("\nEnter a starting letter: ");
+        String letter = sc.nextLine();
+
+        System.out.println("Cities starting with '" + letter + "':");
+        for (String city : cities) {
+            if (city.toUpperCase().startsWith(letter.toUpperCase())) {
+                System.out.println(city);
+            }
+        }
+
+        sc.close();
+    }
+}
+
+
+Output:
+
+Cities after adding: [Chennai,Coimbatore,Madurai,Trichy]
+Cities after inserting Salem at index 2: [Chennai,Coimbatore,Salem,Madurai,Trichy]
+Enter a city name to search:c
+c is not present in the list.
+Enter a starting letter:S
+Salem
