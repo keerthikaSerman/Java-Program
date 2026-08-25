@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Keerthika | Java Programs</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f5f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h2 {
+            color: #60a5fa;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #dbeafe, #f8fafc);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #4b5563;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            font-size: 32px;
+            color: #111827;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+            color: #4b5563;
+        }
+
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #6b7280;
+            margin-bottom: 15px;
+        }
+
+        .card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 10px 18px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <h2>Keerthika</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#programs">Programs</a>
+            <a href="#skills">Skills</a>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Java <span>Programs</span></h1>
+
+            <p>
+                A collection of Java programs created while learning
+                programming and Object-Oriented Programming concepts.
+            </p>
+
+            <a
+                href="https://github.com/keerthikaSerman/Java-Program"
+                class="btn"
+                target="_blank">
+                View GitHub Repository
+            </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About This Project</h2>
+
+        <div class="about">
+            <p>
+                Welcome to my Java Programming portfolio.
+                This website showcases some of my Java programs
+                developed during my learning journey.
+            </p>
+
+            <p>
+                The programs cover basic programming concepts,
+                calculations, banking applications, salary calculation,
+                and other problem-solving exercises.
+            </p>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs">
+        <h2>Java Programs</h2>
+
+        <div class="programs">
+
+            <div class="card">
+                <h3>Calculator</h3>
+                <p>
+                    A basic Java calculator program for performing
+                    arithmetic operations.
+                </p>
+
+                <a
+                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/Calculator.java"
+                    target="_blank">
+                    View Code →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Banking</h3>
+                <p>
+                    A simple Java program demonstrating basic
+                    banking operations.
+                </p>
+
+                <a
+                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/Banking.java"
+                    target="_blank">
+                    View Code →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Area Calculation</h3>
+                <p>
+                    Java program for calculating the area of different
+                    shapes.
+                </p>
+
+                <a
+                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/AreaCalculation.java"
+                    target="_blank">
+                    View Code →
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>Salary Calculation</h3>
+                <p>
+                    A Java program for calculating salary-related values.
+                </p>
+
+                <a
+                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/SalaryCalculation.java"
+                    target="_blank">
+                    View Code →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>Skills Used</h2>
+
+        <div class="skills">
+            <div class="skill">Java</div>
+            <div class="skill">OOP Concepts</div>
+            <div class="skill">Problem Solving</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">GitHub</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            © 2026 Keerthika | Java Programming Portfolio
+        </p>
+
+        <p>
+            <a
+                href="https://github.com/keerthikaSerman"
+                target="_blank">
+                GitHub Profile
+            </a>
+        </p>
+    </footer>
+
+</body>
+</html>
