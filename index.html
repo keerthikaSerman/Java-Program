@@ -1,189 +1,367 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Keerthika | Java Programs</title>
+    <title>Keerthika | Java Developer Portfolio</title>
+
+    <meta name="description"
+          content="Keerthika's portfolio showcasing Java projects, programming skills, and learning journey.">
 
     <style>
+        /* ===== GENERAL STYLES ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        html {
             scroll-behavior: smooth;
         }
 
-        body {
-            background: #f5f7fb;
-            color: #222;
-            line-height: 1.6;
+        :root {
+            --bg: #0b1120;
+            --card: #151f33;
+            --primary: #60a5fa;
+            --secondary: #a78bfa;
+            --text: #f1f5f9;
+            --muted: #a6b4c8;
         }
 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        section {
+            padding: 80px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 35px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* ===== NAVIGATION ===== */
         header {
-            background: #111827;
-            color: white;
-            padding: 20px 8%;
+            background: rgba(11, 17, 32, 0.96);
+            border-bottom: 1px solid #26334a;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            min-height: 70px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            gap: 20px;
         }
 
-        header h2 {
-            color: #60a5fa;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
+        .logo {
+            font-size: 1.4rem;
             font-weight: bold;
+            color: var(--primary);
         }
 
-        nav a:hover {
-            color: #60a5fa;
-        }
-
-        .hero {
-            min-height: 90vh;
+        .nav-links {
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 85vh;
+            display: flex;
             align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #dbeafe, #f8fafc);
+            background:
+                radial-gradient(circle at 85% 25%,
+                #1c3154 0%, transparent 35%);
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .welcome {
+            color: var(--primary);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            color: #111827;
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            line-height: 1.15;
+            margin: 18px 0;
         }
 
         .hero h1 span {
-            color: #2563eb;
+            color: var(--primary);
+        }
+
+        .hero h2 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 20px;
-            color: #4b5563;
+            color: var(--muted);
+            max-width: 650px;
             margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 25px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
+            padding: 12px 23px;
             border-radius: 8px;
+            background: var(--primary);
+            color: #07111f;
             font-weight: bold;
-        }
-
-        .btn:hover {
-            background: #1d4ed8;
-        }
-
-        section {
-            padding: 70px 8%;
-        }
-
-        section h2 {
-            text-align: center;
-            margin-bottom: 35px;
-            font-size: 32px;
-            color: #111827;
-        }
-
-        .about {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-            font-size: 18px;
-            color: #4b5563;
-        }
-
-        .programs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--primary);
             transition: 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
         }
 
-        .card h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
+        .btn-outline {
+            color: var(--primary);
+            background: transparent;
         }
 
-        .card p {
-            color: #6b7280;
+        /* ===== ABOUT ===== */
+        .about-card {
+            background: var(--card);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #293851;
+        }
+
+        .about-card p {
+            color: var(--muted);
             margin-bottom: 15px;
         }
 
-        .card a {
-            color: #2563eb;
-            text-decoration: none;
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(150px, 1fr)
+            );
+            gap: 18px;
+        }
+
+        .skill {
+            background: var(--card);
+            padding: 22px 15px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #293851;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .skill .emoji {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(260px, 1fr)
+            );
+            gap: 22px;
+        }
+
+        .project-card {
+            background: var(--card);
+            padding: 26px;
+            border-radius: 14px;
+            border: 1px solid #293851;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .project-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            background: #24334c;
+            color: #bfdbfe;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin: 3px 3px 10px 0;
+        }
+
+        .project-link {
+            color: var(--primary);
             font-weight: bold;
         }
 
-        .skills {
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== EDUCATION ===== */
+        .education-card {
+            background: var(--card);
+            padding: 25px;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+        }
+
+        .education-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+        }
+
+        /* ===== GOALS ===== */
+        .goal-card {
+            text-align: center;
+            background: linear-gradient(
+                135deg, #172b49, #242044
+            );
+            border: 1px solid #344765;
+            border-radius: 15px;
+            padding: 35px;
+        }
+
+        .goal-card p {
+            color: var(--muted);
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
         }
 
-        .skill {
-            background: #dbeafe;
-            color: #1e40af;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
+        /* ===== FOOTER ===== */
         footer {
-            background: #111827;
-            color: white;
             text-align: center;
-            padding: 25px;
+            padding: 25px 15px;
+            border-top: 1px solid #26334a;
+            color: var(--muted);
         }
 
-        footer a {
-            color: #60a5fa;
-            text-decoration: none;
+        footer span {
+            color: var(--primary);
         }
 
-        @media (max-width: 700px) {
-            header {
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 650px) {
+            nav {
+                padding: 15px 0;
+                align-items: flex-start;
                 flex-direction: column;
-                gap: 10px;
             }
 
-            nav a {
-                margin: 0 7px;
-                font-size: 14px;
+            .nav-links {
+                gap: 12px;
+                font-size: 0.9rem;
             }
 
-            .hero h1 {
-                font-size: 36px;
+            .hero {
+                min-height: 75vh;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .about-card,
+            .goal-card {
+                padding: 22px;
             }
         }
     </style>
@@ -191,148 +369,302 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <header>
-        <h2>Keerthika</h2>
+        <nav class="container">
+            <a href="#home" class="logo">Keerthika.dev</a>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#programs">Programs</a>
-            <a href="#skills">Skills</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- Home -->
-    <section class="hero" id="home">
-        <div>
-            <h1>Java <span>Programs</span></h1>
+    <main>
 
-            <p>
-                A collection of Java programs created while learning
-                programming and Object-Oriented Programming concepts.
-            </p>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <p class="welcome">Welcome to my portfolio</p>
 
-            <a
-                href="https://github.com/keerthikaSerman/Java-Program"
-                class="btn"
-                target="_blank">
-                View GitHub Repository
-            </a>
-        </div>
-    </section>
+                <h1>Hello, I'm <span>Keerthika</span></h1>
 
-    <!-- About -->
-    <section id="about">
-        <h2>About This Project</h2>
+                <h2>Computer Science Student | Aspiring Developer</h2>
 
-        <div class="about">
-            <p>
-                Welcome to my Java Programming portfolio.
-                This website showcases some of my Java programs
-                developed during my learning journey.
-            </p>
-
-            <p>
-                The programs cover basic programming concepts,
-                calculations, banking applications, salary calculation,
-                and other problem-solving exercises.
-            </p>
-        </div>
-    </section>
-
-    <!-- Programs -->
-    <section id="programs">
-        <h2>Java Programs</h2>
-
-        <div class="programs">
-
-            <div class="card">
-                <h3>Calculator</h3>
                 <p>
-                    A basic Java calculator program for performing
-                    arithmetic operations.
+                    I am a Computer Science and Engineering student
+                    passionate about programming, problem-solving,
+                    and creating useful technology projects.
+                    I believe every line of code is an opportunity
+                    to learn something new.
                 </p>
 
-                <a
-                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/Calculator.java"
-                    target="_blank">
-                    View Code →
-                </a>
-            </div>
+                <div class="buttons">
+                    <a href="#projects" class="btn">
+                        Explore My Projects
+                    </a>
 
-            <div class="card">
-                <h3>Banking</h3>
+                    <a href="#contact" class="btn btn-outline">
+                        Connect With Me
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About <span>Me</span></h2>
+
+                <div class="about-card">
+                    <p>
+                        Hello! I'm Keerthika, a second-year Computer
+                        Science and Engineering student at Kamaraj
+                        College of Engineering and Technology.
+                    </p>
+
+                    <p>
+                        I am building my programming foundation
+                        through hands-on projects and continuous
+                        practice. I enjoy understanding how programs
+                        work and turning ideas into practical solutions.
+                    </p>
+
+                    <p>
+                        My current interests include Java, Python,
+                        artificial intelligence, and technology-based
+                        problem-solving. I also enjoy explaining
+                        concepts and sharing what I learn with others.
+                    </p>
+
+                    <p>
+                        My goal is to keep learning, build meaningful
+                        projects, and grow into a confident technology
+                        professional and educator.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My <span>Skills</span></h2>
+
+                <div class="skills-grid">
+                    <div class="skill">
+                        <span class="emoji">☕</span>
+                        <h3>Java</h3>
+                        <p>Programming fundamentals</p>
+                    </div>
+
+                    <div class="skill">
+                        <span class="emoji">🐍</span>
+                        <h3>Python</h3>
+                        <p>Basics and small projects</p>
+                    </div>
+
+                    <div class="skill">
+                        <span class="emoji">🌐</span>
+                        <h3>HTML</h3>
+                        <p>Web page structure</p>
+                    </div>
+
+                    <div class="skill">
+                        <span class="emoji">🎨</span>
+                        <h3>CSS</h3>
+                        <p>Web page styling</p>
+                    </div>
+
+                    <div class="skill">
+                        <span class="emoji">🧠</span>
+                        <h3>Problem Solving</h3>
+                        <p>Logical thinking and practice</p>
+                    </div>
+
+                    <div class="skill">
+                        <span class="emoji">🎤</span>
+                        <h3>Communication</h3>
+                        <p>Presentation and explanation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My <span>Projects</span></h2>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-icon">📚</div>
+
+                        <h3>Smart Study Planner</h3>
+
+                        <p>
+                            A Java-based micro-project concept designed
+                            to help students organize their study
+                            activities and revise academic topics.
+                        </p>
+
+                        <div>
+                            <span class="tag">Java</span>
+                            <span class="tag">OOP</span>
+                            <span class="tag">Learning</span>
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/keerthikaSerman/Java-Program"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Java Repository →
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">🐍</div>
+
+                        <h3>Python Programs</h3>
+
+                        <p>
+                            A collection of Python practice programs
+                            created to strengthen programming logic,
+                            understand fundamentals, and learn by doing.
+                        </p>
+
+                        <div>
+                            <span class="tag">Python</span>
+                            <span class="tag">Logic Building</span>
+                        </div>
+
+                        <a class="project-link"
+                           href="https://github.com/keerthikaSerman/Python-programs"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View Python Repository →
+                        </a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-icon">💡</div>
+
+                        <h3>Future Projects</h3>
+
+                        <p>
+                            I am exploring ideas for student-focused
+                            learning tools and beginner-friendly
+                            technology projects. More projects will
+                            be added as I develop them.
+                        </p>
+
+                        <div>
+                            <span class="tag">Innovation</span>
+                            <span class="tag">Continuous Learning</span>
+                        </div>
+
+                        <a class="project-link" href="#contact">
+                            Connect With Me →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">My <span>Education</span></h2>
+
+                <div class="education-card">
+                    <h3>B.E. Computer Science and Engineering</h3>
+
+                    <p>
+                        Kamaraj College of Engineering and Technology
+                    </p>
+
+                    <p>Currently pursuing second year</p>
+
+                    <p>
+                        Focus: Programming, software development,
+                        problem-solving, and computer science fundamentals.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOALS -->
+        <section id="goals">
+            <div class="container">
+                <div class="goal-card">
+                    <h2 class="section-title">
+                        My <span>Vision</span>
+                    </h2>
+
+                    <p>
+                        I believe learning becomes powerful when
+                        we understand concepts and share knowledge.
+                        My vision is to build useful technology,
+                        keep improving my skills, and inspire others
+                        to learn programming with confidence.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container contact-content">
+                <h2 class="section-title">
+                    Let's <span>Connect</span>
+                </h2>
+
                 <p>
-                    A simple Java program demonstrating basic
-                    banking operations.
+                    Thank you for visiting my portfolio!
+                    Feel free to explore my code and learning journey.
                 </p>
 
-                <a
-                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/Banking.java"
-                    target="_blank">
-                    View Code →
-                </a>
+                <div class="contact-links">
+                    <a class="btn"
+                       href="https://github.com/keerthikaSerman"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub
+                    </a>
+
+                    <a class="btn btn-outline"
+                       href="https://www.linkedin.com/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                </div>
             </div>
+        </section>
 
-            <div class="card">
-                <h3>Area Calculation</h3>
-                <p>
-                    Java program for calculating the area of different
-                    shapes.
-                </p>
+    </main>
 
-                <a
-                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/AreaCalculation.java"
-                    target="_blank">
-                    View Code →
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Salary Calculation</h3>
-                <p>
-                    A Java program for calculating salary-related values.
-                </p>
-
-                <a
-                    href="https://github.com/keerthikaSerman/Java-Program/blob/main/SalaryCalculation.java"
-                    target="_blank">
-                    View Code →
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-        <h2>Skills Used</h2>
-
-        <div class="skills">
-            <div class="skill">Java</div>
-            <div class="skill">OOP Concepts</div>
-            <div class="skill">Problem Solving</div>
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">GitHub</div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <p>
-            © 2026 Keerthika | Java Programming Portfolio
+            © <span id="year"></span>
+            <span>Keerthika</span> | Built with HTML and CSS
         </p>
 
-        <p>
-            <a
-                href="https://github.com/keerthikaSerman"
-                target="_blank">
-                GitHub Profile
-            </a>
-        </p>
+        <p>Keep Learning. Keep Building. Keep Growing. 🚀</p>
     </footer>
+
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
 </body>
 </html>
